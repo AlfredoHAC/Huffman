@@ -2,19 +2,19 @@
 
 ### Instruções
 
-#### Comprimir:
+##### Comprimir:
 > huff -c [ARQUIVO]
 
-#### Descomprimir:
+##### Descomprimir:
 > huff -d [ARQUIVO COMPRIMIDO]
 
-#### Ajuda:
+##### Ajuda:
 > huff -h
 
-#### Estatísticas:
+##### Estatísticas:
 > huff -s [ARQUIVO COMPRIMIDO]
 
-#### Redirecionar saída:
+##### Redirecionar saída:
 > huff -o [ARQUIVO DE SAIDA]
 
 ### Etapas de construção
