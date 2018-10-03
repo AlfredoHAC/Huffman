@@ -4,19 +4,19 @@ Algoritmo de Huffman
 ##Instruções
 
 -Comprimir:
->huff -c <ARQUIVO>
+>huff -c [ARQUIVO]
 
 -Descomprimir:
->huff -d <ARQUIVO COMPRIMIDO>
+>huff -d [ARQUIVO COMPRIMIDO]
 
 -Ajuda:
 >huff -h
 
 -Estatísticas:
->huff -s <ARQUIVO COMPRIMIDO>
+>huff -s [ARQUIVO COMPRIMIDO]
 
 -Redirecionar saída:
->huff -o <ARQUIVO DE SAIDA>
+>huff -o [ARQUIVO DE SAIDA]
 
 ##Etapas de construção
 
