@@ -1,22 +1,22 @@
-Algoritmo de Huffman
+# Algoritmo de Huffman
 =====================
 
-##Instruções
+## Instruções
 
--Comprimir:
->huff -c [ARQUIVO]
+- Comprimir:
+> huff -c [ARQUIVO]
 
--Descomprimir:
->huff -d [ARQUIVO COMPRIMIDO]
+- Descomprimir:
+> huff -d [ARQUIVO COMPRIMIDO]
 
--Ajuda:
->huff -h
+- Ajuda:
+> huff -h
 
--Estatísticas:
->huff -s [ARQUIVO COMPRIMIDO]
+- Estatísticas:
+> huff -s [ARQUIVO COMPRIMIDO]
 
--Redirecionar saída:
->huff -o [ARQUIVO DE SAIDA]
+- Redirecionar saída:
+> huff -o [ARQUIVO DE SAIDA]
 
-##Etapas de construção
+## Etapas de construção
 
