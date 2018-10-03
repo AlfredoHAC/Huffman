@@ -1,2 +1,2 @@
-#Algoritmo de Huffman
+##Algoritmo de Huffman
 =====================
