@@ -37,7 +37,6 @@ int main(int argc, char *argv[]){
                 std::cout << std::endl;
                 break;
             case 'c':
-                                    
                 std::cout << "Comprimindo..." << optarg <<std::endl;
                 huff->setInFile(optarg);
 
