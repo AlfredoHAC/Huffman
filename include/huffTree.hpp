@@ -14,15 +14,9 @@ class Node{
         Node(Node *, Node *);
         char getCharacter();
         int getFrequency();
-<<<<<<< HEAD
-        void Print(); //Debug only
-        void fillCode(std::string);
-
-=======
         void print(); //Debug only
         void fillCode(std::string);
         void fillCode(std::map<char,std::string>*);
->>>>>>> Compressão/Descompressão Implementada
 };
 
 #endif

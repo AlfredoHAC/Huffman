@@ -1,29 +1,5 @@
 #include "huffman.hpp"
 
-<<<<<<< HEAD
-bool Comparable::operator()(Node *Node1, Node *Node2){
-    return Node1->getFrequency() > Node2->getFrequency();
-}
-
-void Huffman::fillFrequencies(std::ifstream *file){
-    char ch;
-
-    *file >> std::noskipws;
-    while(*file >> ch){
-        this->mapIterator = this->frequencies.find(ch);
-
-        if(this->mapIterator == this->frequencies.end()){
-            this->frequencies.insert(std::pair<char,int>(ch,1));
-        }else{
-            this->mapIterator->second++;
-        }
-    }
-    file->close();
-    
-    //debug
-    for(this->mapIterator = this->frequencies.begin(); this->mapIterator != this->frequencies.end(); this->mapIterator++)
-        std::cout << this->mapIterator->first << " - " << this->mapIterator->second << std::endl;
-=======
 Huffman::Huffman(){
     this->inFileName = "";
     this->outFileName = "out.huff";
@@ -88,24 +64,12 @@ void Huffman::fillFrequencies(){
     //debug
     // for(this->mapIterator = this->frequencies.begin(); this->mapIterator != this->frequencies.end(); this->mapIterator++)
     //     std::cout << this->mapIterator->first << " - " << this->mapIterator->second << std::endl;
->>>>>>> Compressão/Descompressão Implementada
 }
 
 void Huffman::fillQueue(){
     for(this->mapIterator = this->frequencies.begin(); this->mapIterator != this->frequencies.end(); this->mapIterator++){
         this->ordFrequencies.push(new Node(this->mapIterator->first, this->mapIterator->second));
     }
-<<<<<<< HEAD
-
-    //debug
-    // std::cout << this->ordFrequencies.size() << std::endl;
-    // int size = this->ordFrequencies.size();
-    // for(int i = 0; i < size; i++){
-    //     std::cout << this->ordFrequencies.top()->getCharacter() << " - " << this->ordFrequencies.top()->getFrequency() << std::endl;
-    //     this->ordFrequencies.pop();
-    // }
-=======
->>>>>>> Compressão/Descompressão Implementada
 }
 
 void Huffman::buildTree(){
@@ -130,19 +94,12 @@ void Huffman::buildTree(){
 
 //Debug only
 void Huffman::printTree(){
-<<<<<<< HEAD
-    this->huffTree->Print();
-=======
     this->huffTree->print();
->>>>>>> Compressão/Descompressão Implementada
 }
 
 void Huffman::codify(){
     std::string code;
     this->huffTree->fillCode(code);
-<<<<<<< HEAD
-}
-=======
     this->huffTree->fillCode(&this->codes);
 }
 
@@ -291,4 +248,3 @@ void Huffman::decompress(){
     this->inFile.close();
     this->outFile.close();
 }
->>>>>>> Compressão/Descompressão Implementada

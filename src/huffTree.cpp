@@ -1,8 +1,5 @@
 #include <iostream>
-<<<<<<< HEAD
-=======
 #include <map>
->>>>>>> Compressão/Descompressão Implementada
 #include "huffTree.hpp"
 
 Node::Node(char character, int frequency){
@@ -13,11 +10,8 @@ Node::Node(char character, int frequency){
 }
 
 Node::Node(Node *LeftNode, Node *RightNode){
-<<<<<<< HEAD
-=======
     this->character = '\0';
     this->code = "";
->>>>>>> Compressão/Descompressão Implementada
     this->frequency = LeftNode->frequency + RightNode->frequency;
     this->left   = LeftNode;
     this->right  = RightNode;
@@ -32,18 +26,6 @@ int Node::getFrequency(){
 }
 
 //Debug only
-<<<<<<< HEAD
-void Node::Print(){
-
-    if(!this->left && !this->right)
-        std::cout << this->character << " - " << this->code << std::endl;  
-    
-    if(this->left != NULL)
-        this->left->Print();
-    
-    if(this->right != NULL)
-        this->right->Print();
-=======
 void Node::print(){
 
     if(!this->left && !this->right)
@@ -54,7 +36,6 @@ void Node::print(){
     
     if(this->right != NULL)
         this->right->print();
->>>>>>> Compressão/Descompressão Implementada
 }
 
 void Node::fillCode(std::string code){
@@ -73,8 +54,6 @@ void Node::fillCode(std::string code){
     }
 }
 
-<<<<<<< HEAD
-=======
 void Node::fillCode(std::map<char,std::string>* CodeMap){
     if(!this->left && !this->right)  
         CodeMap->insert(std::pair<char,std::string>(this->character,this->code));
@@ -85,4 +64,3 @@ void Node::fillCode(std::map<char,std::string>* CodeMap){
     if(this->right != NULL)
         this->right->fillCode(CodeMap);
 }
->>>>>>> Compressão/Descompressão Implementada
