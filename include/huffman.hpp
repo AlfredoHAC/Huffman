@@ -5,9 +5,9 @@
 #include <fstream>
 #include <map>
 #include <queue>
-#include <cmath>
 #include <cstring>
 #include "huffTree.hpp"
+#include "converter.hpp"
 
 
 
@@ -26,9 +26,7 @@ class Huffman{
         std::map<char,int>::iterator mapIterator;
         std::map<char,std::string> codes;
         std::priority_queue<Node *, std::vector<Node *>, Comparable> ordFrequencies;
-    
-        std::string dec2bin(int);
-        unsigned int bin2dec(std::string);
+        BinDecConverter *converter;
 
         void fillFrequencies();
         void fillQueue();

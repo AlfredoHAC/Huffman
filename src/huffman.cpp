@@ -3,6 +3,7 @@
 Huffman::Huffman(){
     this->inFileName = "";
     this->outFileName = "out.huff";
+    this->converter = new BinDecConverter();
 }
 
 Huffman::~Huffman(){
@@ -24,33 +25,6 @@ void Huffman::setOutFile(std::string outFileName){
 void Huffman::print(){
     std::cout << this->inFileName << std::endl;
     std::cout << this->outFileName << std::endl;
-}
-
-std::string Huffman::dec2bin(int decimal){
-    std::string temp;
-    std::string resultado;
-    while(decimal > 1){
-        int resto = decimal % 2;
-        temp += '0' + resto;
-        decimal = decimal / 2; 
-    }
-    temp += '0' + decimal;
-    temp.append(8 - temp.size(), '0');
-
-    for(int i = temp.size()-1; i >= 0; i--){
-        resultado += temp[i];
-    }
-
-    return resultado;
-}
-
-unsigned int Huffman::bin2dec(std::string binary){
-
-    int resultado = 0;
-    for(unsigned int i = 0; i < binary.size(); i++){
-        resultado += (binary[i] - '0')*pow(2, binary.size() - i - 1);
-    }
-    return resultado;
 }
 
 void Huffman::fillFrequencies(){
@@ -147,11 +121,6 @@ void Huffman::compress(){
     std::cout << "[+] Calculando novos códigos..." << std::endl;
     this->codify();
     
-    // for(int i = 0; i < 127; i++){
-    //     if(this->codes[i] != "")
-    //         std::cout << (char) i << " - " <<this->codes[i] << std::endl;
-    // }
-    
     this->inFile.clear();
     this->inFile.seekg(std::ios::beg);
 
@@ -178,7 +147,7 @@ void Huffman::compress(){
         temp += this->codes[ch];
     
         if(temp.size() > 8){
-            newCode += (unsigned char)this->bin2dec(temp.substr(0,8));
+            newCode += (unsigned char)this->converter->bin2dec(temp.substr(0,8));
             temp = temp.substr(8);
         }
     }
@@ -189,7 +158,7 @@ void Huffman::compress(){
         temp.append(padding, '0');
     }
 
-    newCode += (unsigned char)bin2dec(temp); 
+    newCode += (unsigned char)this->converter->bin2dec(temp); 
     this->outFile << (unsigned char) padding;
 
     this->outFile.write(newCode.c_str(), newCode.size());
@@ -218,14 +187,11 @@ void Huffman::decompress(){
     std::cout << "[+] Calculando novos códigos" << std::endl;
     this->codify();
 
-    // this->huffTree->print();
-
-    // this->inFile.read((char *)&padding, 1);
 
     int decimalCode = 0;
     std::string binaryCode;
     while(this->inFile.read((char *)&decimalCode, 1)){
-        binaryCode += this->dec2bin(decimalCode);
+        binaryCode += this->converter->dec2bin(decimalCode);
     }
 
     binaryCode.erase(binaryCode.size() - padding);
