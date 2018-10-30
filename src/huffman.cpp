@@ -60,10 +60,6 @@ void Huffman::fillFrequencies(){
     while(this->inFile.read((char *)&ch, 1)){
         this->frequencies[ch]++;
     }
-
-    //debug
-    // for(this->mapIterator = this->frequencies.begin(); this->mapIterator != this->frequencies.end(); this->mapIterator++)
-    //     std::cout << this->mapIterator->first << " - " << this->mapIterator->second << std::endl;
 }
 
 void Huffman::fillQueue(){
@@ -103,7 +99,7 @@ void Huffman::codify(){
     this->huffTree->fillCode(&this->codes);
 }
 
-void Huffman::readHeader(){
+int Huffman::readHeader(){
 
     char filetype[5];
 
@@ -125,6 +121,11 @@ void Huffman::readHeader(){
 
         this->frequencies[character] = frequency;
     }
+
+    int padding = 0;
+    this->inFile.read((char *)&padding, 1);
+
+    return padding;
 }
 
 void Huffman::compress(){
@@ -208,7 +209,7 @@ void Huffman::decompress(){
     }
 
     std::cout << "[+] Lendo cabeçalho do arquivo" << std::endl;
-    this->readHeader();
+    int padding = this->readHeader();
 
     std::cout << "[+] Construíndo árvore de Huffman" << std::endl;
     this->fillQueue();
@@ -219,8 +220,7 @@ void Huffman::decompress(){
 
     // this->huffTree->print();
 
-    int padding = 0;
-    this->inFile.read((char *)&padding, 1);
+    // this->inFile.read((char *)&padding, 1);
 
     int decimalCode = 0;
     std::string binaryCode;

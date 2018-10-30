@@ -36,7 +36,7 @@ class Huffman{
         void printTree(); //Debug only
         void codify();
 
-        void readHeader();
+        int readHeader();
     public:
         Huffman();
         ~Huffman();
