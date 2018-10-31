@@ -1,3 +1,6 @@
+debug: main.o huffman.o huffTree.o converter.o
+	g++ bin/main.o bin/huffman.o bin/huffTree.o bin/converter.o -o bin/huff -g -Wall -std=c++17 
+
 huff: main.o huffman.o huffTree.o converter.o
 	g++ bin/main.o bin/huffman.o bin/huffTree.o bin/converter.o -o bin/huff -Wall -std=c++17
 

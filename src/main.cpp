@@ -1,3 +1,5 @@
+
+
 #include <iostream>
 #include <fstream>
 #include <clocale>
@@ -83,6 +85,9 @@ int main(int argc, char *argv[]){
                 exit(EXIT_FAILURE);
         }
     }
+
+    //Libera a memória do objeto da classe Huffman
+    delete huff;
 
     return 0;
 }

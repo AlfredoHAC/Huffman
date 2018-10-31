@@ -12,7 +12,11 @@ Huffman::Huffman(){
 }
 
 Huffman::~Huffman(){
+    //Chama o destrutor da classe da árvore de Huffman
+    delete this->huffTree;
 
+    //Destroi o objeto do conversor binário <--> decimal
+    delete this->converter;
 }
 
 bool Huffman::Comparable::operator()(Node *Node1, Node *Node2){

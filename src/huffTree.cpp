@@ -19,6 +19,17 @@ Node::Node(Node *leftNode, Node *rightNode){
     this->right  = rightNode;
 }
 
+/* 
+ * TODO 
+ */
+Node::~Node(){
+    if(this->left)
+        delete this->left;
+
+    if(this->right)
+        delete this->right;
+}
+
 char Node::getCharacter(){
     // Retorna o caractere do nó
     return this->character;
