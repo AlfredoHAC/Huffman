@@ -19,13 +19,12 @@ Node::Node(Node *leftNode, Node *rightNode){
     this->right  = rightNode;
 }
 
-/* 
- * TODO 
- */
 Node::~Node(){
+    // Invoca o destrutor para todos os nós à esquerda 
     if(this->left)
         delete this->left;
 
+    // Invoca o destrutor para todos os nós à direita
     if(this->right)
         delete this->right;
 }
