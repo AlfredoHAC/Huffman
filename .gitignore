@@ -6,7 +6,8 @@
 .vscode/
 
 # Arquivos binários compilados
-bin/
+src/*.o
+huff
 
 # Arquivos de saída
 out.*
